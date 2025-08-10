@@ -11,7 +11,14 @@ function multiply (a, b) {
 }
 
 function divide (a, b) {
-    return a / b;
+    if (b === 0) {
+        alert("Trying to create a black hole eh!");
+        return "ERR"
+    }
+    else {
+        return a / b;
+    }
+    
 }
 
 
