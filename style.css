@@ -34,4 +34,9 @@ button {
     height: 50px;
     font-weight: bold;
     font-size: 20px;
+    
+}
+
+.op_btn, #equal {
+    background-color: rgb(255, 204, 0);
 }
