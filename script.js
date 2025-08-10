@@ -14,29 +14,63 @@ function divide (a, b) {
     return a / b;
 }
 
-function operate(a, b, operator) {
-    switch (operator) {
-        case "add":
-            return add(a, b);
-        case "subtract":
-            return subtract(a, b);
-        case "multiply":
-            return multiply(a, b);
-        case "divide":
-            return divide(a, b);
-    }
-}
 
 let display_number_str = "";
+let prev_operator_select = "";
+let number_selected_arr = [];
 
-function displayNum (num_button) {
+function updateDisplayNum (num_button) {
     const number_select = num_button.textContent;
+    display_number_str += number_select;
+    displayNum();
+    
+}
+
+function displayNum () {
     const num_display = document.querySelector("#display_num");
-    display_number_str += number_select
     num_display.textContent = display_number_str;
 }
 
 const number_btns = document.querySelectorAll(".num");
 number_btns.forEach((num_btn) => {
-    num_btn.addEventListener("click", () => displayNum(num_btn))
+    num_btn.addEventListener("click", () => updateDisplayNum(num_btn))
 })
+
+function selectOperator(op_button) {
+    const operator_select = op_button.id
+    number_selected_arr.push(display_number_str);
+    display_number_str = "";
+    prev_operator_select = operator_select;
+
+}
+
+function operate() {
+    const a = Number(number_selected_arr[0]);
+    const operator = prev_operator_select;
+    const b = Number(display_number_str);
+    let result = 0;
+    switch (operator) {
+        case "add":
+            result = add(a, b);
+            break;
+        case "subtract":
+            result = subtract(a, b);
+            break;
+        case "multiply":
+            result = multiply(a, b);
+            break;
+        case "divide":
+            result = divide(a, b);
+            break;
+    }
+    display_number_str = result.toString();
+    displayNum();
+}
+
+const op_btns = document.querySelectorAll(".op_btn");
+op_btns.forEach((op_btn) => {
+    op_btn.addEventListener("click", () => selectOperator(op_btn))
+})
+
+const equal_btn = document.querySelector("#equal");
+equal_btn.addEventListener("click", ()=>operate());
