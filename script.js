@@ -61,6 +61,7 @@ function operate() {
     const a = Number(prev_number_str);
     const operator = prev_operator_select;
     const b = Number(display_number_str);
+    console.log(`Operating ${a} ${operator} ${b}`)
     let result = 0;
     switch (operator) {
         case "add":
@@ -88,13 +89,18 @@ function clear () {
     displayNum();
 }
 
+function equal_result () {
+    operate();
+    prev_number_str = "";
+}
+
 const op_btns = document.querySelectorAll(".op_btn");
 op_btns.forEach((op_btn) => {
     op_btn.addEventListener("click", () => selectOperator(op_btn))
 })
 
 const equal_btn = document.querySelector("#equal");
-equal_btn.addEventListener("click", ()=>operate());
+equal_btn.addEventListener("click", ()=>equal_result());
 
 const clear_btn = document.querySelector("#clear");
 clear_btn.addEventListener("click", ()=>clear());
