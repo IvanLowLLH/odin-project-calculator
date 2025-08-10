@@ -26,10 +26,11 @@ let display_number_str = "0";
 let prev_number_str = "";
 let prev_operator_select = "";
 let added_decimal = false;
+let start_new = true;
 
 function updateDisplayNum (num_button) {
     const number_select = num_button.textContent;
-    if (display_number_str === "0") {
+    if (display_number_str === "0" || start_new === true) {
         if (number_select !== "0") {
             display_number_str = "";
             display_number_str += number_select;
@@ -102,6 +103,7 @@ function equal_result () {
     operate();
     prev_number_str = "";
     added_decimal = false;
+    start_new = true;
 }
 
 function addDecimal () {
