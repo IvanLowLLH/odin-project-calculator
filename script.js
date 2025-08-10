@@ -16,6 +16,7 @@ function divide (a, b) {
 
 
 let display_number_str = "";
+let prev_number_str = "";
 let prev_operator_select = "";
 let number_selected_arr = [];
 
@@ -38,14 +39,19 @@ number_btns.forEach((num_btn) => {
 
 function selectOperator(op_button) {
     const operator_select = op_button.id
-    number_selected_arr.push(display_number_str);
+    if (prev_number_str.length === 0) {
+        prev_number_str = display_number_str
+    }
+    else {
+        operate();
+    }
     display_number_str = "";
     prev_operator_select = operator_select;
-
+    
 }
 
 function operate() {
-    const a = Number(number_selected_arr[0]);
+    const a = Number(prev_number_str);
     const operator = prev_operator_select;
     const b = Number(display_number_str);
     let result = 0;
@@ -64,6 +70,7 @@ function operate() {
             break;
     }
     display_number_str = result.toString();
+    prev_number_str = display_number_str
     displayNum();
 }
 
