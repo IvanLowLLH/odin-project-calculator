@@ -49,11 +49,12 @@ function selectOperator(op_button) {
         prev_number_str = display_number_str
     }
     else {
-        operate();
+        if (display_number_str.length !== 0) {
+            operate();
+        }
     }
     display_number_str = "";
-    prev_operator_select = operator_select;
-    
+    prev_operator_select = operator_select;    
 }
 
 function operate() {
