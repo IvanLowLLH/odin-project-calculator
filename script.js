@@ -27,12 +27,13 @@ function operate(a, b, operator) {
     }
 }
 
-let display_number = 0;
+let display_number_str = "";
 
 function displayNum (num_button) {
-    const number = num_button.textContent;
+    const number_select = num_button.textContent;
     const num_display = document.querySelector("#display_num");
-    num_display.textContent = number;
+    display_number_str += number_select
+    num_display.textContent = display_number_str;
 }
 
 const number_btns = document.querySelectorAll(".num");
