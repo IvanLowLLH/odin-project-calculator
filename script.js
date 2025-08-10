@@ -15,16 +15,22 @@ function divide (a, b) {
 }
 
 
-let display_number_str = "";
+let display_number_str = "0";
 let prev_number_str = "";
 let prev_operator_select = "";
-let number_selected_arr = [];
 
 function updateDisplayNum (num_button) {
     const number_select = num_button.textContent;
-    display_number_str += number_select;
+    if (display_number_str === "0") {
+        if (number_select !== "0") {
+            display_number_str = "";
+            display_number_str += number_select;
+        }
+    }
+    else {
+        display_number_str += number_select;
+    }
     displayNum();
-    
 }
 
 function displayNum () {
@@ -71,6 +77,13 @@ function operate() {
     }
     display_number_str = result.toString();
     prev_number_str = display_number_str
+    displayNum();
+}
+
+function clear () {
+    display_number_str = "0";
+    prev_number_str = "";
+    prev_operator_select = "";
     displayNum();
 }
 
