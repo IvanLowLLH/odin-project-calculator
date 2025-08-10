@@ -94,3 +94,6 @@ op_btns.forEach((op_btn) => {
 
 const equal_btn = document.querySelector("#equal");
 equal_btn.addEventListener("click", ()=>operate());
+
+const clear_btn = document.querySelector("#clear");
+clear_btn.addEventListener("click", ()=>clear());
