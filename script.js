@@ -115,6 +115,11 @@ function addDecimal () {
     }
 }
 
+function deleteNum () {
+    display_number_str = display_number_str.slice(0, -1);
+    displayNum()
+}
+
 const op_btns = document.querySelectorAll(".op_btn");
 op_btns.forEach((op_btn) => {
     op_btn.addEventListener("click", () => selectOperator(op_btn))
@@ -128,3 +133,6 @@ clear_btn.addEventListener("click", ()=>clear());
 
 const decimal_btn = document.querySelector("#dot");
 decimal_btn.addEventListener("click", ()=>addDecimal());
+
+const del_btn = document.querySelector("#del");
+del_btn.addEventListener("click", () => deleteNum())
