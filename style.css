@@ -1,0 +1,26 @@
+body {
+    width: 200px;
+}
+#display {
+    height: 30px;
+}
+#calculator {
+    display: flex;
+    flex-direction: column;
+}
+
+#display {
+    border: 1px solid black;
+    text-align: right;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    width: 50px;
+    padding: 0;
+    height: 30px;
+}
