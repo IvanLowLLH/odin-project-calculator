@@ -10,10 +10,12 @@ body {
 }
 #display_container {
     height: 30px;
+    border: 1px solid black;
 }
 #display_num {
     font-size: 20px;
     margin: 5px;
+    text-align: right;
 }
 #display {
     border: 1px solid black;
