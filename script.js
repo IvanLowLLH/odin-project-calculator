@@ -25,6 +25,7 @@ function divide (a, b) {
 let display_number_str = "0";
 let prev_number_str = "";
 let prev_operator_select = "";
+let added_decimal = false;
 
 function updateDisplayNum (num_button) {
     const number_select = num_button.textContent;
@@ -93,12 +94,22 @@ function clear () {
     display_number_str = "0";
     prev_number_str = "";
     prev_operator_select = "";
+    added_decimal = false;
     displayNum();
 }
 
 function equal_result () {
     operate();
     prev_number_str = "";
+    added_decimal = false;
+}
+
+function addDecimal () {
+    if (!added_decimal) {
+        added_decimal = true;
+        display_number_str += ".";
+        displayNum();
+    }
 }
 
 const op_btns = document.querySelectorAll(".op_btn");
@@ -111,3 +122,6 @@ equal_btn.addEventListener("click", ()=>equal_result());
 
 const clear_btn = document.querySelector("#clear");
 clear_btn.addEventListener("click", ()=>clear());
+
+const decimal_btn = document.querySelector("#dot");
+decimal_btn.addEventListener("click", ()=>addDecimal());
