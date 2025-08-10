@@ -31,6 +31,7 @@ let start_new = true;
 function updateDisplayNum (num_button) {
     const number_select = num_button.textContent;
     if (display_number_str === "0" || start_new === true) {
+        start_new = false;
         if (number_select !== "0") {
             display_number_str = "";
             display_number_str += number_select;
